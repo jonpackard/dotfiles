@@ -19,6 +19,7 @@ alias tmux="tmux a || tmux"
 alias "ll=ls -lha"
 
 # Fix for SteamVR not being able to use setcap.
+# Source: https://github.com/NixOS/nixpkgs/issues/71554#issuecomment-791969690
 alias "prepvr=sudo setcap CAP_SYS_NICE+ep ~/.local/share/Steam/steamapps/common/SteamVR/bin/linux64/vrcompositor-launcher"
 
 # Fix sometimes needed for allowing X Server connections over SSH.
