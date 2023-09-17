@@ -24,3 +24,15 @@ alias "prepvr=sudo setcap CAP_SYS_NICE+ep ~/.local/share/Steam/steamapps/common/
 
 # Fix sometimes needed for allowing X Server connections over SSH.
 alias "xhostinit=xhost +si:localuser:$USER"
+
+### Startup routine
+
+# Only run in an interactive shell
+if [[ -n "$PS1" ]]; then
+    # Only run these commands if not in a Nix shell
+    if [ -z "$IN_NIX_SHELL" ]; then
+        # Your non-Nix specific commands here
+        neofetch
+        fortune
+    fi
+fi
