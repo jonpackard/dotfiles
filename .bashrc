@@ -25,6 +25,9 @@ alias "prepvr=sudo setcap CAP_SYS_NICE+ep ~/.local/share/Steam/steamapps/common/
 # Fix sometimes needed for allowing X Server connections over SSH.
 alias "xhostinit=xhost +si:localuser:$USER"
 
+# Run nixos-rebuid switch using flake from github repo
+alias nrsf="sudo nixos-rebuild switch --flake github:jonpackard/nixos-configs#${hostname}"
+
 ### Startup routine
 
 # Only run in an interactive shell
