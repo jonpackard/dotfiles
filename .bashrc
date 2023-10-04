@@ -26,14 +26,14 @@ alias "prepvr=sudo setcap CAP_SYS_NICE+ep ~/.local/share/Steam/steamapps/common/
 alias "xhostinit=xhost +si:localuser:$USER"
 
 # Run nixos-rebuid switch using flake from github repo
-alias nrsf="sudo nixos-rebuild switch --flake github:jonpackard/nixos-configs#${hostname}"
+alias nrsf="sudo nixos-rebuild switch --flake /home/jonathan/nixos-configs#${hostname}"
 
 ### Startup routine
 
 # Only run in an interactive shell
 if [[ -n "$PS1" ]]; then
     # Only run these commands if not in a Nix shell
-    if [ -z "$IN_NIX_SHELL" ]; then
+    if [ -z "$IN_NIX_SHELL" ] && [ $name -ne "nix-shell-env" ]; then
         # Your non-Nix specific commands here
         neofetch
         fortune
