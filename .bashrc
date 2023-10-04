@@ -30,12 +30,8 @@ alias nrsf="sudo nixos-rebuild switch --flake /home/jonathan/nixos-configs#${hos
 
 ### Startup routine
 
-# Only run in an interactive shell
-if [[ -n "$PS1" ]]; then
-    # Only run these commands if not in a Nix shell
-    if [ -z "$IN_NIX_SHELL" ] && [ $name -ne "nix-shell-env" ]; then
-        # Your non-Nix specific commands here
-        neofetch
-        fortune
-    fi
+# Only run in an interactive shell that is not nested.
+if [ -n "$PS1" ] && [ $SHLVL -lt 2 ]; then
+    neofetch
+    fortune
 fi
