@@ -16,14 +16,18 @@ alias nixshow="nix-env -qa --description"
 alias tmux="tmux a || tmux" 
 
 # Shortcut for ls using flags long, human readable and hidden.
-alias "ll=ls -lha"
+alias ll="ls -lha"
 
 # Fix for SteamVR not being able to use setcap.
 # Source: https://github.com/NixOS/nixpkgs/issues/71554#issuecomment-791969690
-alias "prepvr=sudo setcap CAP_SYS_NICE+ep ~/.local/share/Steam/steamapps/common/SteamVR/bin/linux64/vrcompositor-launcher"
+alias prepvr="sudo setcap CAP_SYS_NICE+ep ~/.local/share/Steam/steamapps/common/SteamVR/bin/linux64/vrcompositor-launcher"
+
+# Turn VR lighthouses on and off
+alias lhon="watch lighthouse --state on"
+alias lhoff="watch lighthouse --state off"
 
 # Fix sometimes needed for allowing X Server connections over SSH.
-alias "xhostinit=xhost +si:localuser:$USER"
+alias xhostinit="xhost +si:localuser:$USER"
 
 # Run nixos-rebuid switch using flake from github repo
 alias nrsf="sudo nixos-rebuild switch --flake /home/jonathan/nixos-configs#${hostname}"
